@@ -8,7 +8,7 @@ public class MetaData {
     public static final String BUILDTIMESTAMP = "${build.time}";
     public static final String SERVICENAME = "Statistical Sampler Service";
     public static final String GECOS = "John Southerland josouthe@cisco.com AppDynamics Field Architecture Team";
-    public static final String GITHUB = "";
+    public static final String GITHUB = "https://github.com/jbsouthe/AppDynamics-LimitAlerting-Dynamic-Service";
     public static final String DEVNET = "";
     public static final String SUPPORT = "/issues";
 
