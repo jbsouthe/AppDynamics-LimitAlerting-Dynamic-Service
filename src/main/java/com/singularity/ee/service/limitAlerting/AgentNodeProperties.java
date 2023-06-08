@@ -12,14 +12,15 @@ import java.util.Observable;
 
 public class AgentNodeProperties extends Observable {
     private static final IADLogger logger = ADLoggerFactory.getLogger((String)"com.singularity.dynamicservice.limitAlerting.AgentNodeProperties");
-    public static final String[] NODE_PROPERTIES = new String[]{"agent.limitAlerting.enabled", TransactionMonitorProperty.MAX_DISCOVERED_BACKENDS};
+    public static final String ENABLE_PROPERTY = "agent.limitAlerting.enabled";
+    public static final String[] NODE_PROPERTIES = new String[]{ENABLE_PROPERTY, TransactionMonitorProperty.MAX_DISCOVERED_BACKENDS};
     private final Map<String, String> properties = new HashMap<>();
 
     public void initializeConfigs(IServiceConfig serviceConfig) {
         Map configProperties = serviceConfig.getConfigProperties();
         if( configProperties != null ) {
-            boolean enabled = StringOperations.safeParseBoolean((String)((String)configProperties.get("agent.statisticalSampler.enabled")), (boolean)false);
-            this.properties.put("agent.limitAlerting.enabled", Boolean.toString(enabled));
+            boolean enabled = StringOperations.safeParseBoolean((String)((String)configProperties.get(ENABLE_PROPERTY)), (boolean)false);
+            this.properties.put(ENABLE_PROPERTY, Boolean.toString(enabled));
             this.properties.put(TransactionMonitorProperty.MAX_DISCOVERED_BACKENDS, Integer.toString(TransactionMonitorProperty.DEFAULT_MAX_DISCOVERED_BACKENDS));
             logger.info("Initializing the properties " + this);
         } else {
@@ -52,7 +53,7 @@ public class AgentNodeProperties extends Observable {
     }
 
     public boolean isEnabled() {
-        return StringOperations.safeParseBoolean((String)this.getProperty("agent.limitAlerting.enabled"), (boolean)false);
+        return StringOperations.safeParseBoolean((String)this.getProperty(ENABLE_PROPERTY), (boolean)false);
     }
 
 }
