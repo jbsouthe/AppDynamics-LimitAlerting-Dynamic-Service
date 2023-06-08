@@ -203,7 +203,7 @@
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
                     <descriptor>assembly-deployment.xml</descriptor>
-                    <finalName>appdynamics-agent-LimitAlerting-${pom.version}</finalName>
+                    <finalName>Appdynamics-${pom.artifactId}-${pom.version}</finalName>
                 </configuration>
                 <executions>
                     <execution>
