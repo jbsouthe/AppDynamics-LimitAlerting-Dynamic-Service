@@ -53,7 +53,7 @@ public class LimitAlertingTask implements IAgentRunnable {
     @Override
     public void run() {
         if(!agentNodeProperties.isEnabled()) {
-            logger.info("Service " + agentService.getName() + " is not enabled. To enable it enable the node property agent.LimitAlertingTask.enabled");
+            logger.info("Service " + agentService.getName() + " is not enabled. To enable it enable the node property "+ AgentNodeProperties.ENABLE_PROPERTY);
             return;
         }
         InternalEventGenerator internalEventGenerator = serviceComponent.getEventHandler().getEventService().getInternalEventGenerator();
